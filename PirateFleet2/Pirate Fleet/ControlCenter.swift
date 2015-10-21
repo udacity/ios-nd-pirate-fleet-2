@@ -44,12 +44,12 @@ struct Ship {
         }
     }
 
-    init(length: Int, location: GridLocation, isVertical: Bool, hitTracker: HitTracker) {
+    init(length: Int, location: GridLocation, isVertical: Bool) {
         self.length = length
         self.location = location
         self.isVertical = isVertical
         self.isWooden = true
-        self.hitTracker = hitTracker
+        self.hitTracker = HitTracker()
     }
 }
 
@@ -69,23 +69,33 @@ struct Mine: _Mine_ {
     }
 }
 
+enum Era {
+    case OldThyme
+    case Modern
+}
+
+
+struct GameSettings {
+    var era : Era
+}
+
 class ControlCenter {
 
     func addShipsAndMines(human: Human) {
         // Code from Pirate Fleet 1 solution
-        let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true, hitTracker: HitTracker() )
+        let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true )
         human.addShipToGrid(smallShip)
         
-        let mediumShip1 = Ship(length: 3, location: GridLocation(x: 0, y: 0), isVertical: false, hitTracker: HitTracker() )
+        let mediumShip1 = Ship(length: 3, location: GridLocation(x: 0, y: 0), isVertical: false)
         human.addShipToGrid(mediumShip1)
         
-        let mediumShip2 = Ship(length: 3, location: GridLocation(x: 3, y: 1), isVertical: false, hitTracker: HitTracker())
+        let mediumShip2 = Ship(length: 3, location: GridLocation(x: 3, y: 1), isVertical: false)
         human.addShipToGrid(mediumShip2)
         
-        let largeShip = Ship(length: 4, location: GridLocation(x: 6, y: 3), isVertical: true, hitTracker: HitTracker())
+        let largeShip = Ship(length: 4, location: GridLocation(x: 6, y: 3), isVertical: true)
         human.addShipToGrid(largeShip)
         
-        let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true, hitTracker: HitTracker())
+        let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true)
         human.addShipToGrid(xLargeShip)
         
         let mine1 = Mine(location: GridLocation(x: 6, y: 0), explosionText: "Ka-Boom!")

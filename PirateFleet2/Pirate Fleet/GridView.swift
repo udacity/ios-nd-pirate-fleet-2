@@ -173,37 +173,37 @@ extension GridView {
         switch orientation {
         case .EndUp:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
                 addImageAtLocation(location, image: Settings.Images.ShipEndUp, hidden: hidden)
             }
         case .EndDown:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
             addImageAtLocation(location, image: Settings.Images.ShipEndDown, hidden: hidden)
             }
         case .EndLeft:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
                 addImageAtLocation(location, image: Settings.Images.ShipEndLeft, hidden: hidden)
             }
         case .EndRight:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
                 addImageAtLocation(location, image: Settings.Images.ShipEndRight, hidden: hidden)
             }
         case .BodyHorz:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
                 addImageAtLocation(location, image: Settings.Images.ShipBodyHorz, hidden: hidden)
             }
         case .BodyVert:
             if isWooden {
-                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceHolder, hidden: hidden)
+                addImageAtLocation(location, image: Settings.Images.WoodenShipPlaceholder, hidden: hidden)
             } else {
                 addImageAtLocation(location, image: Settings.Images.ShipBodyVert, hidden: hidden)
             }

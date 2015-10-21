@@ -46,6 +46,6 @@ struct Settings {
         static var MineHit = "MineHit"
         static var Mine = "Mine"
         static var Water = "Water"
-        static var WoodenShipPlaceHolder = "WoodenShipPlaceHolder"
+        static var WoodenShipPlaceholder = "WoodenShipPlaceholder"
     }
 }
