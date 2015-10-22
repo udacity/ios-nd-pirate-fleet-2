@@ -127,9 +127,6 @@ class PirateFleetViewController: UIViewController {
             if humanAffected {
                 self.human.skipTurn()
             }
-            if affectedPlayerType == .Computer {
-                self.computer.skipNextTurn = false
-            }
         }
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -182,6 +179,7 @@ extension PirateFleetViewController: PlayerDelegate {
                 pauseGameWithAlert(penaltyCell, affectedPlayerType: player.playerType)
                 if penaltyCell.guaranteesHit {
                     human.attackPlayerWithGuaranteedHit(computer)
+                    computer.skipNextTurn = false
                 }
                 break
             }
