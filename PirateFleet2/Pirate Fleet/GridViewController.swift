@@ -38,6 +38,7 @@ class GridViewController {
             shipCounts[shipSize] = 0
         }
         mineCount = 0
+        seamonsterCount = 0
         gridView.reset()
         gridView.setNeedsDisplay()
     }
