@@ -52,12 +52,19 @@ class PirateFleetViewController: UIViewController {
         // initialize player first, check the number of mines
         setupPlayer()
         let numberOfMines = human.numberOfMines()
+        let numberOfSeamonsters = human.numberOfSeamonsters()
         
         // computer must match the number of mines
-        setupComputer(numberOfMines)
+        setupComputer(numberOfMines, numberOfSeamonsters: numberOfSeamonsters)
         
         // are we ready to play?
-        readyToPlay = (numberOfMines == 0) ? human.readyToPlay(checkMines: false) && computer.readyToPlay(checkMines: false) : human.readyToPlay() && computer.readyToPlay()
+        if numberOfMines == 0 && numberOfSeamonsters == 0 {
+            readyToPlay = human.readyToPlay(checkMines: false, checkMonsters: false) && computer.readyToPlay(checkMines: false, checkMonsters: false)
+        } else if numberOfMines == 0 && numberOfSeamonsters != 0 {
+            readyToPlay = human.readyToPlay(checkMines: false) && computer.readyToPlay(checkMines: false)
+        } else {
+            readyToPlay = human.readyToPlay(checkMonsters: false) && computer.readyToPlay(checkMonsters: false)
+        }
         
         if !readyToPlay && viewHasAppeared {
             endGameWithAlert(Settings.Messages.UnableToStart, withMessage: (numberOfMines == 0) ? Settings.Messages.BaseRequirementsNotMet : Settings.Messages.AdvancedRequirementsNotMet)
@@ -69,24 +76,24 @@ class PirateFleetViewController: UIViewController {
     func setupPlayer() {
         if human != nil {
             human.reset()
-            human.addPlayerShipsAndMines()
+            human.addPlayerShipsMinesAndMonsters()
         } else {
             human = HumanObject(frame: CGRect(x: self.view.frame.size.width / 2 - 120, y: self.view.frame.size.height - 256, width: 240, height: 240))
             human.playerDelegate = self
-            human.addPlayerShipsAndMines()
+            human.addPlayerShipsMinesAndMonsters()
             self.view.addSubview(human.gridView)
         }
     }
     
-    func setupComputer(numberOfMines: Int) {
+    func setupComputer(numberOfMines: Int, numberOfSeamonsters: Int) {
         if computer != nil {
             computer.reset()
-            computer.addPlayerShipsAndMines(numberOfMines)
+            computer.addPlayerShipsMinesAndMonsters(numberOfMines, numberOfSeamonsters: numberOfSeamonsters)
         } else {
             computer = Computer(frame: CGRect(x: self.view.frame.size.width / 2 - 180, y: self.view.frame.size.height / 2 - 300, width: 360, height: 360))
             computer.playerDelegate = self
             computer.gridDelegate = self
-            computer.addPlayerShipsAndMines(numberOfMines)
+            computer.addPlayerShipsMinesAndMonsters(numberOfMines, numberOfSeamonsters: numberOfSeamonsters)
             self.view.addSubview(computer.gridView)
         }
     }
@@ -105,18 +112,27 @@ class PirateFleetViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func pauseGameWithMineAlert(explosionText: String, affectedPlayerType: PlayerType) {
+    func pauseGameWithMineAlert(explosionText: String, affectedPlayerType: PlayerType, humanAffected: Bool = false) {
         let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
         let alert = UIAlertController(title: explosionText + "!", message: alertText, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: Settings.Messages.DismissMineAlert, style: .Default, handler: nil)
+        let dismissAction = UIAlertAction(title: Settings.Messages.DismissAlert, style: .Default) { (action) -> Void in
+            if humanAffected {
+                self.human.skipTurn()
+            }
+        }
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: true, completion: nil)         
     }
 
-    func pauseGameWithSeamonsterAlert(affectedPlayerType: PlayerType) {
-        let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
-        let alert = UIAlertController(title: "Uh oh!", message: alertText, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: Settings.Messages.DismissMineAlert, style: .Default, handler: nil)
+    func pauseGameWithSeamonsterAlert(affectedPlayerType: PlayerType, humanAffected: Bool = false) {
+        let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonster : Settings.Messages.ComputerHitSeamonster
+        let titleText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonsterTitle : Settings.Messages.ComputerHitSeamonsterTitle
+        let alert = UIAlertController(title: titleText, message: alertText, preferredStyle: .Alert)
+        let dismissAction = UIAlertAction(title: Settings.Messages.DismissAlert, style: .Default) { (action) -> Void in
+            if humanAffected {
+                self.human.skipTurn()
+            }
+        }
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -145,39 +161,39 @@ extension PirateFleetViewController: PlayerDelegate {
             if computer.skipNextTurn {
                 computer.skipNextTurn = false
             } else {
-                computer.attack(human)
+                if human.takeAHit {
+                    computer.attackPlayerWithGuaranteedHit(human)
+                    human.takeAHit = false
+                    human.shouldTakeAHit = false
+                } else {
+                    computer.attack(human)
+                }
                 
                 // did human hit a mine?
                 if let mine = human.lastHitMine where human.skipNextTurn {
-                    // yes, then invokes playerDidMove again to "skip"
-                    pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType)
-                    human.skipTurn()
+                    pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType, humanAffected: true)
+                    break
                 }
                 
                 // did human hit a seamonster?
-                if let _ = human.lastHitSeamonster where human.takeAHit {
-                    pauseGameWithSeamonsterAlert(player.playerType)
-                    // computer attacks human with guaranteed hit
-                    //computer.attackPlayerWithGuaranteedHit(human)
-                    human.takeAHit = false
+                if let _ = human.lastHitSeamonster where human.shouldTakeAHit {
+                    pauseGameWithSeamonsterAlert(player.playerType, humanAffected: true)
+                    human.takeAHit = true
+                    break
                 }
             }
             
         case .Computer:
             if let mine = computer.lastHitMine where computer.skipNextTurn {
                 pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType)
+                break
             }
         
             if let _ = computer.lastHitSeamonster where computer.takeAHit {
                 pauseGameWithSeamonsterAlert(player.playerType)
-                // human attacks computer with guaranteed hit
                 human.attackPlayerWithGuaranteedHit(computer)
-                computer.takeAHit = false
+                break
             }
-            
-        
-        
-        
         }
     }
 

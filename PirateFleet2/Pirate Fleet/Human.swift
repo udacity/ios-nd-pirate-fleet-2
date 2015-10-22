@@ -55,7 +55,7 @@ class HumanObject: Player, Human {
         gridViewController.addSeamonster(seamonster)
     }
     
-    override func addPlayerShipsAndMines(numberOfMines: Int = 0) {
+    override func addPlayerShipsMinesAndMonsters(numberOfMines: Int = 0, numberOfSeamonsters: Int = 0) {
         controlCenter.addShipsAndMines(self)
     }
     
