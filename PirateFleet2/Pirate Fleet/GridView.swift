@@ -229,8 +229,14 @@ extension GridView {
     
     private func addImageAtLocation(location: GridLocation, image: String, hidden: Bool = false) {
         let imageView = UIImageView(image: UIImage(named: image))
-        imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: self.grid[location.x][location.y].view.frame.size)
+        let sideLength = self.grid[location.x][location.y].view.frame.size.height
+        imageView.frame = CGRect(origin: CGPoint(x: sideLength/2, y: sideLength/2), size: CGSize(width: 0, height: 0))
         imageView.hidden = hidden
+        
         self.grid[location.x][location.y].view.addSubview(imageView)
+        
+        UIView.animateWithDuration(0.25) {
+            imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: self.grid[location.x][location.y].view.frame.size)
+        }
     }
 }
