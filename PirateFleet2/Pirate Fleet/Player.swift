@@ -11,9 +11,10 @@ import UIKit
 // MARK: - PlayerMine
 // Used to give students a clean interface 😉!
 
-struct PlayerMine: _Mine_ {
-    var location: GridLocation
-    var explosionText: String
+struct PlayerMine: PenaltyCell {
+    let location: GridLocation
+    let penaltyText: String
+    let guaranteesHit: Bool
 }
 
 // MARK: - Player
@@ -27,8 +28,7 @@ class Player {
     var skipNextTurn = false
     var takeAHit = false
     var shouldTakeAHit = false
-    var lastHitMine: _Mine_? = nil
-    var lastHitSeamonster: Seamonster? = nil
+    var lastHitPenaltyCell: PenaltyCell? = nil
     var numberOfMisses: Int = 0
     var numberOfHits: Int = 0
     var performedMoves = Set<GridLocation>()
@@ -87,15 +87,15 @@ class Player {
         // hit a mine?
         if let mine = player.grid[atLocation.x][atLocation.y].mine {
             skipNextTurn = true
-            lastHitMine = mine
+            lastHitPenaltyCell = mine
             numberOfMisses++
             player.gridView.markMineHit(mine)
         }
         
         // hit a seamonster?
         if let seamonster = player.grid[atLocation.x][atLocation.y].seamonster {
-            shouldTakeAHit = true
-            lastHitSeamonster = seamonster
+            skipNextTurn = true
+            lastHitPenaltyCell = seamonster
             numberOfMisses++            
             player.gridView.markSeamonsterHit(seamonster)
         }
@@ -200,10 +200,10 @@ class Player {
         // random mine placement
         for _ in 0..<numberOfMines {
             var location = RandomGridLocation()
-            var mine = PlayerMine(location: location, explosionText: Settings.DefaultMineText)
+            var mine = Mine(location: location, penaltyText: Settings.DefaultMineText, guaranteesHit: false)
             while !gridViewController.addMine(mine, playerType: .Computer) {
                 location = RandomGridLocation()
-                mine = PlayerMine(location: location, explosionText: Settings.DefaultMineText)
+                mine = Mine(location: location, penaltyText: Settings.DefaultMineText, guaranteesHit: false)
             }
             print("MINE at \(mine.location)")
         }

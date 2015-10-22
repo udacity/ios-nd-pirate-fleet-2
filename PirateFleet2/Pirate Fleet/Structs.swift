@@ -21,7 +21,7 @@ struct GridCell {
     let location: GridLocation
     let view: UIView
     var containsObject: Bool
-    var mine: _Mine_?
+    var mine: Mine?
     var ship: Ship?
     var seamonster: Seamonster?
 }

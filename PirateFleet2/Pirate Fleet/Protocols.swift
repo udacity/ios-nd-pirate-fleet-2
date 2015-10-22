@@ -6,7 +6,7 @@
 //  Copyright © 2015 Udacity. All rights reserved.
 //
 
-protocol _Mine_ {
-    var location: GridLocation {get}
-    var explosionText: String {get}
-}
+//protocol _Mine_ {
+//    var location: GridLocation {get}
+//    var explosionText: String {get}
+//}

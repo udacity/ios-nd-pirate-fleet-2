@@ -34,7 +34,7 @@ struct Settings {
         static var HumanHitSeamonster = "You've awakened a seamonster! In its rage, it hits one of your ships!"
         static var ComputerHitSeamonsterTitle = "Sweet!"
         static var ComputerHitSeamonster = "The computer hit a seamonster! The seamonster hits one of the opponent's ships!"
-        static var DismissAlert = "Keep Firing!"
+        static var DismissAlert = "Continue"
         static var BaseRequirementsNotMet = "You do not have the correct amount of ships/mines. You need one small ship (size of 2), two medium ships (size of 3), one large ship (size of 4), one x-large ship (size of 5)."
         static var AdvancedRequirementsNotMet = "You do not have the correct amount of ships/mines. You need one small ship (size of 2), two medium ships (size of 3), one large ship (size of 4), one x-large ship (size of 5), and two mines."
     }

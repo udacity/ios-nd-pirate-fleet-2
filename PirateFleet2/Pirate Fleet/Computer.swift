@@ -50,12 +50,12 @@ class Computer: Player {
         
         if let mine = player.grid[move.x][move.y].mine {
             skipNextTurn = true
-            lastHitMine = mine
+            lastHitPenaltyCell = mine
         }
         
         if let seamonster = player.grid[move.x][move.y].seamonster {
-            lastHitSeamonster = seamonster
-            takeAHit = true
+            skipNextTurn = true
+            lastHitPenaltyCell = seamonster            
         }
         
         if player.gridViewController.fireCannonAtLocation(move) {

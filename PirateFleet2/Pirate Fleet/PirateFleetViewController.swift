@@ -111,26 +111,24 @@ class PirateFleetViewController: UIViewController {
         }
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-    func pauseGameWithMineAlert(explosionText: String, affectedPlayerType: PlayerType, humanAffected: Bool = false) {
-        let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
-        let alert = UIAlertController(title: explosionText + "!", message: alertText, preferredStyle: .Alert)
+
+    func pauseGameWithAlert(penaltyCell: PenaltyCell, affectedPlayerType: PlayerType, humanAffected: Bool = false) {
+        
+        var alertText = ""
+        
+        if let _ = penaltyCell as? Mine {
+            alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
+        } else {
+            alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonster : Settings.Messages.ComputerHitSeamonster
+        }
+        
+        let alert = UIAlertController(title: penaltyCell.penaltyText + "!", message: alertText, preferredStyle: .Alert)
         let dismissAction = UIAlertAction(title: Settings.Messages.DismissAlert, style: .Default) { (action) -> Void in
             if humanAffected {
                 self.human.skipTurn()
             }
-        }
-        alert.addAction(dismissAction)
-        self.presentViewController(alert, animated: true, completion: nil)         
-    }
-
-    func pauseGameWithSeamonsterAlert(affectedPlayerType: PlayerType, humanAffected: Bool = false) {
-        let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonster : Settings.Messages.ComputerHitSeamonster
-        let titleText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonsterTitle : Settings.Messages.ComputerHitSeamonsterTitle
-        let alert = UIAlertController(title: titleText, message: alertText, preferredStyle: .Alert)
-        let dismissAction = UIAlertAction(title: Settings.Messages.DismissAlert, style: .Default) { (action) -> Void in
-            if humanAffected {
-                self.human.skipTurn()
+            if affectedPlayerType == .Computer {
+                self.computer.skipNextTurn = false
             }
         }
         alert.addAction(dismissAction)
@@ -164,34 +162,27 @@ extension PirateFleetViewController: PlayerDelegate {
                 if human.takeAHit {
                     computer.attackPlayerWithGuaranteedHit(human)
                     human.takeAHit = false
-                    human.shouldTakeAHit = false
                 } else {
                     computer.attack(human)
                 }
                 
-                // did human hit a mine?
-                if let mine = human.lastHitMine where human.skipNextTurn {
-                    pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType, humanAffected: true)
-                    break
-                }
-                
-                // did human hit a seamonster?
-                if let _ = human.lastHitSeamonster where human.shouldTakeAHit {
-                    pauseGameWithSeamonsterAlert(player.playerType, humanAffected: true)
-                    human.takeAHit = true
+                // did hit something?
+                if let penaltyCell = human.lastHitPenaltyCell where human.skipNextTurn {
+                    pauseGameWithAlert(penaltyCell, affectedPlayerType: player.playerType, humanAffected: true)
+                    if penaltyCell.guaranteesHit {
+                        human.takeAHit = true
+                    }
                     break
                 }
             }
             
         case .Computer:
-            if let mine = computer.lastHitMine where computer.skipNextTurn {
-                pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType)
-                break
-            }
-        
-            if let _ = computer.lastHitSeamonster where computer.takeAHit {
-                pauseGameWithSeamonsterAlert(player.playerType)
-                human.attackPlayerWithGuaranteedHit(computer)
+            
+            if let penaltyCell = computer.lastHitPenaltyCell where computer.skipNextTurn {
+                pauseGameWithAlert(penaltyCell, affectedPlayerType: player.playerType)
+                if penaltyCell.guaranteesHit {
+                    human.attackPlayerWithGuaranteedHit(computer)
+                }
                 break
             }
         }

@@ -157,11 +157,11 @@ extension GridView {
         addImageAtLocation(location, image: Settings.Images.Hit)
     }
     
-    func markMineHit(mine: _Mine_) {
+    func markMineHit(mine: Mine) {
         addImageAtLocation(mine.location, image: Settings.Images.MineHit)
     }
     
-    func markMine(mine: _Mine_, hidden: Bool = false) {
+    func markMine(mine: Mine, hidden: Bool = false) {
         addImageAtLocation(mine.location, image: Settings.Images.Mine, hidden: hidden)
     }
     
