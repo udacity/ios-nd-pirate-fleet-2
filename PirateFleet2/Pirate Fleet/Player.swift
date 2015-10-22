@@ -25,7 +25,9 @@ class Player {
     var playerDelegate: PlayerDelegate?
     var playerType: PlayerType
     var skipNextTurn = false
+    var takeAHit = false
     var lastHitMine: _Mine_? = nil
+    var lastHitSeamonster: Seamonster? = nil
     var numberOfMisses: Int = 0
     var numberOfHits: Int = 0
     var performedMoves = Set<GridLocation>()
@@ -60,6 +62,11 @@ class Player {
         return gridViewController.mineCount
     }
     
+    func numberOfSeamonsters() -> Int {
+        return gridViewController.seamonsterCount
+    }
+    
+    
     func readyToPlay(checkMines checkMines: Bool = true) -> Bool {
         return (checkMines == true) ? gridViewController.hasRequiredShips() && gridViewController.hasRequiredMines() : gridViewController.hasRequiredShips()
     }
@@ -76,6 +83,15 @@ class Player {
             lastHitMine = mine
             numberOfMisses++
             player.gridView.markMineHit(mine)
+        }
+        
+        // hit a seamonster?
+        if let seamonster = player.grid[atLocation.x][atLocation.y].seamonster {
+            lastHitSeamonster = seamonster
+            numberOfMisses++
+            takeAHit = true
+            //attackPlayerWithGuaranteedHit(player)
+            player.gridView.markSeamonsterHit(seamonster)
         }
         
         // hit a ship?
@@ -108,6 +124,47 @@ class Player {
         return !(location.x < 0 || location.y < 0 || location.x >= Settings.DefaultGridSize.width || location.y >= Settings.DefaultGridSize.height)
     }
     
+    //MARK: Guaranteed Hit
+    func attackPlayerWithGuaranteedHit(player: Player) {
+        var hitShip = false
+        
+        while hitShip == false {
+            let location = RandomGridLocation()
+            if !performedMoves.contains(location) {
+                // hit a mine?
+                if let _ = player.grid[location.x][location.y].mine {
+                    // do nothing
+                }
+        
+                // hit a seamonster?
+                if let _ = player.grid[location.x][location.y].seamonster {
+                    // do nothing
+                }
+        
+                // hit a ship?
+                if !player.gridViewController.fireCannonAtLocation(location) {
+                   //do nothing
+                } else {
+                    // we hit something!
+                    hitShip = true
+                    numberOfHits++
+                    performedMoves.insert(location)
+        
+                    if let playerDelegate = playerDelegate {
+                        
+                        if player.gridViewController.checkSink(location) {
+                            playerDelegate.playerDidSinkAtLocation(self, location: location)
+                        }
+                        
+                        if player.gridViewController.checkForWin() {
+                            playerDelegate.playerDidWin(self)
+                        }
+                        playerDelegate.playerDidMove(self)
+                    }
+                }
+            }
+        }
+    }
     
     // MARK: Modify Grid
     
@@ -125,12 +182,12 @@ class Player {
                 
                 var shipLocation = RandomGridLocation()
                 var vertical = Int(arc4random_uniform(UInt32(2))) == 0 ? true : false
-                var ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical, hitTracker: HitTracker())
+                var ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical)
                 
                 while !gridViewController.addShip(ship, playerType: .Computer) {
                     shipLocation = RandomGridLocation()
                     vertical = Int(arc4random_uniform(UInt32(2))) == 0 ? true : false
-                    ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical, hitTracker: HitTracker())
+                    ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical)
                 }
             }
         }

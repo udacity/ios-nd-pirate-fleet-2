@@ -36,6 +36,8 @@
 		A9EAC0BB1B8FD833008AD77B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BA1B8FD833008AD77B /* Player.swift */; };
 		A9EAC0BD1B8FDE98008AD77B /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BC1B8FDE98008AD77B /* Human.swift */; };
 		EDDB1C3F1BD750DA00E453FA /* WoodenShipPlaceholder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C3E1BD750DA00E453FA /* WoodenShipPlaceholder.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C411BD8326800E453FA /* Seamonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C401BD8326800E453FA /* Seamonster.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C431BD837DE00E453FA /* SeamonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		A9EAC0BA1B8FD833008AD77B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A9EAC0BC1B8FDE98008AD77B /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		EDDB1C3E1BD750DA00E453FA /* WoodenShipPlaceholder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipPlaceholder.pdf; sourceTree = "<group>"; };
+		EDDB1C401BD8326800E453FA /* Seamonster.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Seamonster.pdf; sourceTree = "<group>"; };
+		EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeamonsterHit.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				A9C2B4621B8E2D38007983DB /* Assets.xcassets */,
 				A9C2B4751B8E2D79007983DB /* Hit.pdf */,
 				A9C2B4761B8E2D79007983DB /* Miss.pdf */,
+				EDDB1C401BD8326800E453FA /* Seamonster.pdf */,
+				EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */,
 				A9C2B4771B8E2D79007983DB /* ShipEndRight.pdf */,
 				A9C2B4781B8E2D79007983DB /* ShipEndLeft.pdf */,
 				A9C2B4791B8E2D79007983DB /* ShipEndDown.pdf */,
@@ -263,7 +269,9 @@
 				A9C2B48E1B8E2D79007983DB /* Mine.pdf in Resources */,
 				A9C2B48B1B8E2D79007983DB /* ShipEndDown.pdf in Resources */,
 				A9C2B48D1B8E2D79007983DB /* ShipBodyHorz.pdf in Resources */,
+				EDDB1C431BD837DE00E453FA /* SeamonsterHit.pdf in Resources */,
 				A9C2B48F1B8E2D79007983DB /* ShipEndUp.pdf in Resources */,
+				EDDB1C411BD8326800E453FA /* Seamonster.pdf in Resources */,
 				A9C2B4881B8E2D79007983DB /* Miss.pdf in Resources */,
 				A9C2B48A1B8E2D79007983DB /* ShipEndLeft.pdf in Resources */,
 				A9C2B4891B8E2D79007983DB /* ShipEndRight.pdf in Resources */,

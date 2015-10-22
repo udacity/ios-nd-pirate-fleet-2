@@ -48,12 +48,11 @@ struct Ship {
         self.length = length
         self.location = location
         self.isVertical = isVertical
-        self.isWooden = true
+        self.isWooden = false
         self.hitTracker = HitTracker()
     }
 }
 
-// Code from Pirate Fleet 1 solution
 struct Mine: _Mine_ {
     let location: GridLocation
     let explosionText: String
@@ -67,6 +66,10 @@ struct Mine: _Mine_ {
         self.location = location
         self.explosionText = explosionText
     }
+}
+
+struct Seamonster {
+    let location: GridLocation
 }
 
 enum Era {
@@ -103,6 +106,13 @@ class ControlCenter {
         
         let mine2 = Mine(location: GridLocation(x: 3, y: 3))
         human.addMineToGrid(mine2)
+    
+        let seamonster1 = Seamonster(location: GridLocation(x: 5, y: 6))
+        human.addSeamonsterToGrid(seamonster1)
+        
+        let seamonster2 = Seamonster(location: GridLocation(x: 2, y: 2))
+        human.addSeamonsterToGrid(seamonster2)
+    
     }
     
     func calculateFinalScore(gameStats: GameStats) -> Int {

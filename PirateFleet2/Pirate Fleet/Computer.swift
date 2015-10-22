@@ -53,6 +53,11 @@ class Computer: Player {
             lastHitMine = mine
         }
         
+        if let seamonster = player.grid[move.x][move.y].seamonster {
+            lastHitSeamonster = seamonster
+            takeAHit = true
+        }
+        
         if player.gridViewController.fireCannonAtLocation(move) {
             shipHitTrace.append(move)
             if Settings.ComputerDifficulty == .Advanced { addEducatedMoves() }
@@ -70,6 +75,40 @@ class Computer: Player {
         }        
     }
     
+    // MARK: Attack Guaranteed Hit
+    func attackWithGuaranteedHit(player: Player) {
+        var hitShip = false
+        
+        while hitShip == false {
+            let location = RandomGridLocation()
+            
+            if !performedMoves.contains(location) {
+                
+                if let _ = player.grid[location.x][location.y].mine {
+                    //do nothing
+                }
+                
+                if let _ = player.grid[location.x][location.y].seamonster {
+                    // do nothing
+                }
+                
+                if player.gridViewController.fireCannonAtLocation(location) {
+                    shipHitTrace.append(location)
+                    hitShip = true
+                    performedMoves.insert(GridLocation(x: location.x, y: location.y))
+                    
+                    if let playerDelegate = playerDelegate {
+                        if player.gridViewController.checkForWin() {
+                            playerDelegate.playerDidWin(self)
+                        }
+                        playerDelegate.playerDidMove(self)
+                    }
+                    
+                }
+            }
+        }
+    }
+        
     // MARK: Adding New Moves
     
     private func addEducatedMoves() {

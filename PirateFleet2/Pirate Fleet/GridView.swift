@@ -65,7 +65,7 @@ class GridView: UIView {
                 
                 addBackgroundToView(view, backgroundImage: cellBackgroundImage)
                 
-                let gridCell = GridCell(location: GridLocation(x: x, y: y), view: view, containsObject: false, mine: nil, ship: nil)
+                let gridCell = GridCell(location: GridLocation(x: x, y: y), view: view, containsObject: false, mine: nil, ship: nil, seamonster: nil)
                 cells.append(gridCell)
                 self.addSubview(view)
             }
@@ -82,6 +82,7 @@ class GridView: UIView {
                 }
                 grid[x][y].containsObject = false
                 grid[x][y].mine = nil
+                grid[x][y].seamonster = nil
                 if let _ = grid[x][y].ship {
                     grid[x][y].ship = nil
                 }
@@ -164,6 +165,14 @@ extension GridView {
         addImageAtLocation(mine.location, image: Settings.Images.Mine, hidden: hidden)
     }
     
+    func markSeamonsterHit(seamonster: Seamonster) {
+        addImageAtLocation(seamonster.location, image: Settings.Images.SeamonsterHit)
+    }
+    
+    func markSeamonster(seamonster: Seamonster, hidden: Bool = false) {
+        addImageAtLocation(seamonster.location, image: Settings.Images.Seamonster, hidden: hidden)
+    }
+   
     func markShipPiece(location: GridLocation, orientation: ShipPieceOrientation, playerType: PlayerType, isWooden: Bool) {
         
         // if placing a computer piece, then hide it by default

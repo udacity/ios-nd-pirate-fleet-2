@@ -23,6 +23,7 @@ class GridViewController {
         .XLarge: 0
     ]
     var mineCount = 0
+    var seamonsterCount = 0
     
     // MARK: Initializers
     
@@ -117,6 +118,22 @@ class GridViewController {
         return true
     }
     
+    //MARK: Add Seamonster
+    func addSeamonster(seamonster: Seamonster, playerType: PlayerType = .Human) -> Bool {
+        
+        let x = seamonster.location.x, y = seamonster.location.y
+        
+        guard seamonsterCount < Settings.RequiredSeamonsters && !gridView.grid[x][y].containsObject else {
+            return false
+        }
+        
+        gridView.grid[x][y].containsObject = true
+        gridView.grid[x][y].seamonster = seamonster
+        gridView.markSeamonster(seamonster, hidden: ((playerType == .Computer) ? true : false))
+        seamonsterCount++
+        return true
+    }
+
     // MARK: Fire Cannon
     
     func fireCannonAtLocation(location: GridLocation) -> Bool {
@@ -130,6 +147,8 @@ class GridViewController {
         gridView.grid[x][y].ship?.hitTracker.cellsHit[location] = true
         if let mine = gridView.grid[x][y].mine {
             gridView.markMineHit(mine)
+        } else if let seamonster = gridView.grid[x][y].seamonster {
+            gridView.markSeamonsterHit(seamonster)
         } else {
             gridView.markHit(location)
         }
@@ -152,6 +171,10 @@ extension GridViewController {
     
     func hasRequiredMines() -> Bool {
         return mineCount == Settings.RequiredMines
+    }
+
+    func hasRequiredSeamonsters() -> Bool {
+        return seamonsterCount == Settings.RequiredSeamonsters
     }
 }
 

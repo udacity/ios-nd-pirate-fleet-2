@@ -112,6 +112,14 @@ class PirateFleetViewController: UIViewController {
         alert.addAction(dismissAction)
         self.presentViewController(alert, animated: true, completion: nil)         
     }
+
+    func pauseGameWithSeamonsterAlert(affectedPlayerType: PlayerType) {
+        let alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
+        let alert = UIAlertController(title: "Uh oh!", message: alertText, preferredStyle: .Alert)
+        let dismissAction = UIAlertAction(title: Settings.Messages.DismissMineAlert, style: .Default, handler: nil)
+        alert.addAction(dismissAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - PirateFleetViewController: GridViewDelegate
@@ -145,11 +153,31 @@ extension PirateFleetViewController: PlayerDelegate {
                     pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType)
                     human.skipTurn()
                 }
-            }            
+                
+                // did human hit a seamonster?
+                if let _ = human.lastHitSeamonster where human.takeAHit {
+                    pauseGameWithSeamonsterAlert(player.playerType)
+                    // computer attacks human with guaranteed hit
+                    //computer.attackPlayerWithGuaranteedHit(human)
+                    human.takeAHit = false
+                }
+            }
+            
         case .Computer:
             if let mine = computer.lastHitMine where computer.skipNextTurn {
                 pauseGameWithMineAlert(mine.explosionText, affectedPlayerType: player.playerType)
             }
+        
+            if let _ = computer.lastHitSeamonster where computer.takeAHit {
+                pauseGameWithSeamonsterAlert(player.playerType)
+                // human attacks computer with guaranteed hit
+                human.attackPlayerWithGuaranteedHit(computer)
+                computer.takeAHit = false
+            }
+            
+        
+        
+        
         }
     }
 
