@@ -221,8 +221,8 @@ extension GridView {
     
     func revealLocations(locations: [GridLocation]) {
         for location in locations {
-            for views in grid[location.x][location.y].view.subviews {
-                views.hidden = false
+            for view in grid[location.x][location.y].view.subviews {
+                view.hidden = false
             }
         }
     }
