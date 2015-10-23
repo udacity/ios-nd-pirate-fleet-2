@@ -112,7 +112,7 @@ class PirateFleetViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    func pauseGameWithAlert(penaltyCell: Cell, affectedPlayerType: PlayerType, humanAffected: Bool = false) {
+    func pauseGameWithAlert(penaltyCell: PenaltyCell, affectedPlayerType: PlayerType, humanAffected: Bool = false) {
         
         var alertText = ""
         
@@ -122,7 +122,7 @@ class PirateFleetViewController: UIViewController {
             alertText = (affectedPlayerType == .Human) ? Settings.Messages.HumanHitSeamonster : Settings.Messages.ComputerHitSeamonster
         }
         
-        let alert = UIAlertController(title: "Hit Something?", message: alertText, preferredStyle: .Alert)
+        let alert = UIAlertController(title: penaltyCell.penaltyText, message: alertText, preferredStyle: .Alert)
         let dismissAction = UIAlertAction(title: Settings.Messages.DismissAlert, style: .Default) { (action) -> Void in
             if humanAffected {
                 self.human.skipTurn()
@@ -166,9 +166,9 @@ extension PirateFleetViewController: PlayerDelegate {
                 // did hit something?
                 if let penaltyCell = human.lastHitPenaltyCell where human.skipNextTurn {
                     pauseGameWithAlert(penaltyCell, affectedPlayerType: player.playerType, humanAffected: true)
-//                    if penaltyCell.guaranteesHit {
-//                        human.takeAHit = true
-//                    }
+                    if penaltyCell.guaranteesHit {
+                        human.takeAHit = true
+                    }
                     break
                 }
             }
@@ -177,10 +177,10 @@ extension PirateFleetViewController: PlayerDelegate {
             
             if let penaltyCell = computer.lastHitPenaltyCell where computer.skipNextTurn {
                 pauseGameWithAlert(penaltyCell, affectedPlayerType: player.playerType)
-//                if penaltyCell.guaranteesHit {
-//                    human.attackPlayerWithGuaranteedHit(computer)
-//                    computer.skipNextTurn = false
-//                }
+                if penaltyCell.guaranteesHit {
+                    human.attackPlayerWithGuaranteedHit(computer)
+                    computer.skipNextTurn = false
+                }
                 break
             }
         }

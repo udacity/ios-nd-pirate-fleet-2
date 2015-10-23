@@ -8,15 +8,6 @@
 
 import UIKit
 
-// MARK: - PlayerMine
-// Used to give students a clean interface 😉!
-
-struct PlayerMine: Cell {
-    let location: GridLocation
-    let penaltyText: String
-    let guaranteesHit: Bool
-}
-
 // MARK: - Player
 
 class Player {
@@ -28,7 +19,7 @@ class Player {
     var skipNextTurn = false
     var takeAHit = false
     var shouldTakeAHit = false
-    var lastHitPenaltyCell: Cell? = nil
+    var lastHitPenaltyCell: PenaltyCell? = nil
     var numberOfMisses: Int = 0
     var numberOfHits: Int = 0
     var performedMoves = Set<GridLocation>()

@@ -6,8 +6,10 @@
 //  Copyright © 2015 Udacity. All rights reserved.
 //
 
-protocol Cell {
+protocol PenaltyCell {
     var location: GridLocation {get}
+    var penaltyText: String {get}
+    var guaranteesHit: Bool {get}
 }
 
 struct GridLocation {
@@ -57,12 +59,46 @@ struct Ship {
     }
 }
 
-struct Mine: Cell {
+struct Mine: PenaltyCell {
     let location: GridLocation
+    let penaltyText: String
+    let guaranteesHit: Bool
+    
+    init(location: GridLocation) {
+        self.location = location
+        self.penaltyText = "Default explosion text"
+        self.guaranteesHit = false
+    }
+    
+    init(location: GridLocation, penaltyText: String) {
+        self.location = location
+        self.penaltyText = penaltyText
+        self.guaranteesHit = false
+    }
+    
+    init(location: GridLocation, penaltyText: String, guaranteesHit: Bool) {
+        self.location = location
+        self.penaltyText = penaltyText
+        self.guaranteesHit = guaranteesHit
+    }
 }
 
-struct Seamonster: Cell {
+struct Seamonster: PenaltyCell {
     let location: GridLocation
+    let penaltyText: String
+    let guaranteesHit: Bool
+    
+    init(location: GridLocation) {
+        self.location = location
+        self.penaltyText = "Default explosion text"
+        self.guaranteesHit = true
+    }
+    
+    init(location: GridLocation, explosionText: String) {
+        self.location = location
+        self.penaltyText = explosionText
+        self.guaranteesHit = true
+    }
 }
 
 class ControlCenter {
