@@ -6,10 +6,8 @@
 //  Copyright © 2015 Udacity. All rights reserved.
 //
 
-protocol PenaltyCell {
+protocol Cell {
     var location: GridLocation {get}
-    var penaltyText: String {get}
-    var guaranteesHit: Bool {get}
 }
 
 struct GridLocation {
@@ -59,56 +57,12 @@ struct Ship {
     }
 }
 
-struct Mine: PenaltyCell {
+struct Mine: Cell {
     let location: GridLocation
-    let penaltyText: String
-    let guaranteesHit: Bool
-
-    init(location: GridLocation) {
-        self.location = location
-        self.penaltyText = "Default explosion text"
-        self.guaranteesHit = false
-    }
-
-    init(location: GridLocation, penaltyText: String) {
-        self.location = location
-        self.penaltyText = penaltyText
-        self.guaranteesHit = false
-    }
-    
-    init(location: GridLocation, penaltyText: String, guaranteesHit: Bool) {
-        self.location = location
-        self.penaltyText = penaltyText
-        self.guaranteesHit = guaranteesHit
-    }
 }
 
-struct Seamonster: PenaltyCell {
+struct Seamonster: Cell {
     let location: GridLocation
-    let penaltyText: String
-    let guaranteesHit: Bool
-    
-    init(location: GridLocation) {
-        self.location = location
-        self.penaltyText = "Default explosion text"
-        self.guaranteesHit = true
-    }
-    
-    init(location: GridLocation, explosionText: String) {
-        self.location = location
-        self.penaltyText = explosionText
-        self.guaranteesHit = true
-    }
-}
-
-enum Era {
-    case OldThyme
-    case Modern
-}
-
-
-struct GameSettings {
-    var era : Era
 }
 
 class ControlCenter {
@@ -130,7 +84,7 @@ class ControlCenter {
         let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true)
         human.addShipToGrid(xLargeShip)
         
-        let mine1 = Mine(location: GridLocation(x: 6, y: 0), penaltyText: "Ka-Boom!")
+        let mine1 = Mine(location: GridLocation(x: 6, y: 0))
         human.addMineToGrid(mine1)
         
         let mine2 = Mine(location: GridLocation(x: 3, y: 3))
