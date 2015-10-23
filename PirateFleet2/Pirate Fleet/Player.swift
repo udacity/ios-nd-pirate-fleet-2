@@ -196,7 +196,7 @@ class Player {
                 location = RandomGridLocation()
                 mine = Mine(location: location)
             }
-            print("MINE at \(mine.location)")
+            //print("MINE at \(mine.location)")
         }
         
         // random seamonster placement
@@ -207,7 +207,7 @@ class Player {
                 location = RandomGridLocation()
                 seaMonster = Seamonster(location: location)
             }
-            print("MONSTER at \(seaMonster.location)")
+            //print("MONSTER at \(seaMonster.location)")
         }
     }
 }

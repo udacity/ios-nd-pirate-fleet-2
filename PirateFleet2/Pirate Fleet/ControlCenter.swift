@@ -103,9 +103,9 @@ struct Seamonster: PenaltyCell {
 
 class ControlCenter {
 
-    func addShipsAndMines(human: Human) {
-        // Code from Pirate Fleet 1 solution
+    func addShipsMinesAndMonsters(human: Human) {
         let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true )
+        print(smallShip.cells)
         human.addShipToGrid(smallShip)
         
         let mediumShip1 = Ship(length: 3, location: GridLocation(x: 0, y: 0), isVertical: false)
