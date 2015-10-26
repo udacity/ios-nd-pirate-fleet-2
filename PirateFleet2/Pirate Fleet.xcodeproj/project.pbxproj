@@ -35,9 +35,15 @@
 		A9DDAF261B9629AD00D64CD7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DDAF251B9629AD00D64CD7 /* Functions.swift */; settings = {ASSET_TAGS = (); }; };
 		A9EAC0BB1B8FD833008AD77B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BA1B8FD833008AD77B /* Player.swift */; };
 		A9EAC0BD1B8FDE98008AD77B /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BC1B8FDE98008AD77B /* Human.swift */; };
-		EDDB1C3F1BD750DA00E453FA /* WoodenShipPlaceholder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C3E1BD750DA00E453FA /* WoodenShipPlaceholder.pdf */; settings = {ASSET_TAGS = (); }; };
-		EDDB1C411BD8326800E453FA /* Seamonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C401BD8326800E453FA /* Seamonster.pdf */; settings = {ASSET_TAGS = (); }; };
-		EDDB1C431BD837DE00E453FA /* SeamonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C571BDDF49B00E453FA /* SeaMonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C561BDDF49B00E453FA /* SeaMonster.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C591BDDF4A200E453FA /* SeaMonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C581BDDF4A200E453FA /* SeaMonsterHit.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C5C1BDDF4C800E453FA /* WoodenShipBody.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C5A1BDDF4C800E453FA /* WoodenShipBody.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C5D1BDDF4C800E453FA /* WoodenShipHeadUp.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C5B1BDDF4C800E453FA /* WoodenShipHeadUp.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C5F1BDDF4D500E453FA /* PirateFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C5E1BDDF4D500E453FA /* PirateFlag.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C641BDDF4FE00E453FA /* WoodenShipHeadDown.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C601BDDF4FE00E453FA /* WoodenShipHeadDown.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C651BDDF4FE00E453FA /* WoodenShipHeadRight.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C611BDDF4FE00E453FA /* WoodenShipHeadRight.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C661BDDF4FE00E453FA /* WoodenShipHeadLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C621BDDF4FE00E453FA /* WoodenShipHeadLeft.pdf */; settings = {ASSET_TAGS = (); }; };
+		EDDB1C671BDDF4FE00E453FA /* WoodenShipBodyHorz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EDDB1C631BDDF4FE00E453FA /* WoodenShipBodyHorz.pdf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,9 +77,15 @@
 		A9DDAF251B9629AD00D64CD7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		A9EAC0BA1B8FD833008AD77B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A9EAC0BC1B8FDE98008AD77B /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
-		EDDB1C3E1BD750DA00E453FA /* WoodenShipPlaceholder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipPlaceholder.pdf; sourceTree = "<group>"; };
-		EDDB1C401BD8326800E453FA /* Seamonster.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Seamonster.pdf; sourceTree = "<group>"; };
-		EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeamonsterHit.pdf; sourceTree = "<group>"; };
+		EDDB1C561BDDF49B00E453FA /* SeaMonster.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeaMonster.pdf; sourceTree = "<group>"; };
+		EDDB1C581BDDF4A200E453FA /* SeaMonsterHit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeaMonsterHit.pdf; sourceTree = "<group>"; };
+		EDDB1C5A1BDDF4C800E453FA /* WoodenShipBody.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipBody.pdf; sourceTree = "<group>"; };
+		EDDB1C5B1BDDF4C800E453FA /* WoodenShipHeadUp.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadUp.pdf; sourceTree = "<group>"; };
+		EDDB1C5E1BDDF4D500E453FA /* PirateFlag.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PirateFlag.pdf; sourceTree = "<group>"; };
+		EDDB1C601BDDF4FE00E453FA /* WoodenShipHeadDown.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadDown.pdf; sourceTree = "<group>"; };
+		EDDB1C611BDDF4FE00E453FA /* WoodenShipHeadRight.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadRight.pdf; sourceTree = "<group>"; };
+		EDDB1C621BDDF4FE00E453FA /* WoodenShipHeadLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadLeft.pdf; sourceTree = "<group>"; };
+		EDDB1C631BDDF4FE00E453FA /* WoodenShipBodyHorz.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipBodyHorz.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +149,8 @@
 				A9C2B4621B8E2D38007983DB /* Assets.xcassets */,
 				A9C2B4751B8E2D79007983DB /* Hit.pdf */,
 				A9C2B4761B8E2D79007983DB /* Miss.pdf */,
-				EDDB1C401BD8326800E453FA /* Seamonster.pdf */,
-				EDDB1C421BD837DE00E453FA /* SeamonsterHit.pdf */,
+				EDDB1C561BDDF49B00E453FA /* SeaMonster.pdf */,
+				EDDB1C581BDDF4A200E453FA /* SeaMonsterHit.pdf */,
 				A9C2B4771B8E2D79007983DB /* ShipEndRight.pdf */,
 				A9C2B4781B8E2D79007983DB /* ShipEndLeft.pdf */,
 				A9C2B4791B8E2D79007983DB /* ShipEndDown.pdf */,
@@ -148,7 +160,13 @@
 				A9601EC41B8E8B8800F9D044 /* MineHit.pdf */,
 				A9C2B47C1B8E2D79007983DB /* Mine.pdf */,
 				A9C2B47E1B8E2D79007983DB /* Water.pdf */,
-				EDDB1C3E1BD750DA00E453FA /* WoodenShipPlaceholder.pdf */,
+				EDDB1C5A1BDDF4C800E453FA /* WoodenShipBody.pdf */,
+				EDDB1C5B1BDDF4C800E453FA /* WoodenShipHeadUp.pdf */,
+				EDDB1C5E1BDDF4D500E453FA /* PirateFlag.pdf */,
+				EDDB1C601BDDF4FE00E453FA /* WoodenShipHeadDown.pdf */,
+				EDDB1C611BDDF4FE00E453FA /* WoodenShipHeadRight.pdf */,
+				EDDB1C621BDDF4FE00E453FA /* WoodenShipHeadLeft.pdf */,
+				EDDB1C631BDDF4FE00E453FA /* WoodenShipBodyHorz.pdf */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -264,22 +282,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C2B4661B8E2D38007983DB /* LaunchScreen.storyboard in Resources */,
+				EDDB1C5D1BDDF4C800E453FA /* WoodenShipHeadUp.pdf in Resources */,
 				A9C2B4901B8E2D79007983DB /* Water.pdf in Resources */,
 				A9C2B4631B8E2D38007983DB /* Assets.xcassets in Resources */,
 				A9C2B48E1B8E2D79007983DB /* Mine.pdf in Resources */,
+				EDDB1C651BDDF4FE00E453FA /* WoodenShipHeadRight.pdf in Resources */,
 				A9C2B48B1B8E2D79007983DB /* ShipEndDown.pdf in Resources */,
 				A9C2B48D1B8E2D79007983DB /* ShipBodyHorz.pdf in Resources */,
-				EDDB1C431BD837DE00E453FA /* SeamonsterHit.pdf in Resources */,
 				A9C2B48F1B8E2D79007983DB /* ShipEndUp.pdf in Resources */,
-				EDDB1C411BD8326800E453FA /* Seamonster.pdf in Resources */,
+				EDDB1C571BDDF49B00E453FA /* SeaMonster.pdf in Resources */,
+				EDDB1C5F1BDDF4D500E453FA /* PirateFlag.pdf in Resources */,
 				A9C2B4881B8E2D79007983DB /* Miss.pdf in Resources */,
 				A9C2B48A1B8E2D79007983DB /* ShipEndLeft.pdf in Resources */,
+				EDDB1C5C1BDDF4C800E453FA /* WoodenShipBody.pdf in Resources */,
+				EDDB1C591BDDF4A200E453FA /* SeaMonsterHit.pdf in Resources */,
 				A9C2B4891B8E2D79007983DB /* ShipEndRight.pdf in Resources */,
 				A9C2B4871B8E2D79007983DB /* Hit.pdf in Resources */,
+				EDDB1C661BDDF4FE00E453FA /* WoodenShipHeadLeft.pdf in Resources */,
+				EDDB1C641BDDF4FE00E453FA /* WoodenShipHeadDown.pdf in Resources */,
 				A9C2B48C1B8E2D79007983DB /* ShipBodyVert.pdf in Resources */,
-				EDDB1C3F1BD750DA00E453FA /* WoodenShipPlaceholder.pdf in Resources */,
 				A9601EC51B8E8B8800F9D044 /* MineHit.pdf in Resources */,
 				A9C2B4611B8E2D38007983DB /* Main.storyboard in Resources */,
+				EDDB1C671BDDF4FE00E453FA /* WoodenShipBodyHorz.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
