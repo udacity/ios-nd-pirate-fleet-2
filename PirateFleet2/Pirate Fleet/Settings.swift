@@ -42,8 +42,8 @@ struct Settings {
     struct Images {
         static var Hit = "Hit"
         static var Miss = "Miss"
-        static var Seamonster = "Seamonster"
-        static var SeamonsterHit = "SeamonsterHit"
+        static var SeaMonster = "SeaMonster"
+        static var SeaMonsterHit = "SeaMonsterHit"
         static var ShipEndRight = "ShipEndRight"
         static var ShipEndLeft = "ShipEndLeft"
         static var ShipEndDown = "ShipEndDown"
@@ -53,6 +53,11 @@ struct Settings {
         static var MineHit = "MineHit"
         static var Mine = "Mine"
         static var Water = "Water"
-        static var WoodenShipPlaceholder = "WoodenShipPlaceholder"
+        static var WoodenShipBodyHorz = "WoodenShipBodyHorz"
+        static var WoodenShipBodyVert = "WoodenShipBodyVert"
+        static var WoodenShipHeadRight = "WoodenShipHeadRight"
+        static var WoodenShipHeadLeft = "WoodenShipHeadLeft"
+        static var WoodenShipHeadDown = "WoodenShipHeadDown"
+        static var WoodenShipHeadUp = "WoodenShipHeadUp"
     }
 }

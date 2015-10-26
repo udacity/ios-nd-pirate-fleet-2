@@ -166,11 +166,11 @@ extension GridView {
     }
     
     func markSeamonsterHit(seamonster: Seamonster) {
-        addImageAtLocation(seamonster.location, image: Settings.Images.SeamonsterHit)
+        addImageAtLocation(seamonster.location, image: Settings.Images.SeaMonsterHit)
     }
     
     func markSeamonster(seamonster: Seamonster, hidden: Bool = false) {
-        addImageAtLocation(seamonster.location, image: Settings.Images.Seamonster, hidden: hidden)
+        addImageAtLocation(seamonster.location, image: Settings.Images.SeaMonster, hidden: hidden)
     }
    
     func markShipPiece(location: GridLocation, orientation: ShipPieceOrientation, playerType: PlayerType, isWooden: Bool) {
