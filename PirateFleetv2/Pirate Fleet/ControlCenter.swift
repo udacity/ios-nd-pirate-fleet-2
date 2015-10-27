@@ -52,13 +52,11 @@ struct Ship {
     }
 }
 
-protocol PenaltyCell {
+protocol Cell {
     var location: GridLocation {get}
-    var penaltyText: String {get}
-    var guaranteesHit: Bool {get}
 }
 
-struct Mine: PenaltyCell {
+struct Mine: Cell {
     let location: GridLocation
     let penaltyText: String
     let guaranteesHit: Bool
@@ -82,7 +80,7 @@ struct Mine: PenaltyCell {
     }
 }
 
-struct SeaMonster: PenaltyCell {
+struct SeaMonster: Cell {
     let location: GridLocation
     let penaltyText: String
     let guaranteesHit: Bool

@@ -148,24 +148,24 @@ extension PirateFleetViewController: PlayerDelegate {
         // if any penalties incurred during the move, show alert
         if let penaltyCell = player.lastHitPenaltyCell {
             
-            // mine penalty
-            if let mine = penaltyCell as? Mine {
+            // lose a turn penalty
+            if penaltyCell.guaranteesHit {
                 attackedPlayer.availableMoves.append(.NormalMove)
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
 
-                createAlertWithTitle(mine.penaltyText, message: alertMessage, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
+                createAlertWithTitle("Ka-boom!", message: alertMessage, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
                     self.dismissPenaltyAlert(player)
                 })
             }
                 
-            // sea monster penalty
-            else if let seamonster = penaltyCell as? SeaMonster {
+            // guaranteed hit penalty
+            else if !penaltyCell.guaranteesHit {
                 attackedPlayer.availableMoves.append(.GuaranteedHit)
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMonster : Settings.Messages.ComputerHitMonster
                 
-                createAlertWithTitle(seamonster.penaltyText, message: alertMessage, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
+                createAlertWithTitle("You hit a Seamonster!", message: alertMessage, actionMessage: Settings.Messages.DismissAction, completionHandler: { (action) in
                     self.dismissPenaltyAlert(player)
                 })
             }
