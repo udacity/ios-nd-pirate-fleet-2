@@ -64,12 +64,17 @@ struct Settings {
         static var ShipBodyHorz = "ShipBodyHorz"
         static var ShipBodyVert = "ShipBodyVert"
 
-        static var WoodenShipPlaceholder = "WoodenShipPlaceholder"
+        static var WoodenShipHeadLeft = "WoodenShipHeadLeft"
+        static var WoodenShipHeadRightWithFlag = "WoodenShipHeadRightWithFlag"
+        static var WoodenShipHeadUpWithFlag = "WoodenShipHeadUpWithFlag"
+        static var WoodenShipHeadDown = "WoodenShipHeadDown"
+        static var WoodenShipBodyHorz = "WoodenShipBodyHorz"
+        static var WoodenShipBodyVert = "WoodenShipBodyVert"
         
         static var Mine = "Mine"
         static var MineHit = "MineHit"
         
-        static var SeaMonster = "Seamonster"
-        static var SeaMonsterHit = "SeamonsterHit"
+        static var SeaMonster = "SeaMonster"
+        static var SeaMonsterHit = "SeaMonsterHit"
     }
 }

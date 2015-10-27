@@ -47,7 +47,7 @@ struct Ship {
         self.length = length
         self.location = location
         self.isVertical = isVertical
-        self.isWooden = false
+        self.isWooden = true
         self.hitTracker = HitTracker()
     }
 }

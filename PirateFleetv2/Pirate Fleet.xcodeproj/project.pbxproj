@@ -34,6 +34,14 @@
 		A9DDAF261B9629AD00D64CD7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DDAF251B9629AD00D64CD7 /* Functions.swift */; };
 		A9EAC0BB1B8FD833008AD77B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BA1B8FD833008AD77B /* Player.swift */; };
 		A9EAC0BD1B8FDE98008AD77B /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BC1B8FDE98008AD77B /* Human.swift */; };
+		ED986B971BDFF7270018437D /* SeaMonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B961BDFF7270018437D /* SeaMonster.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986B991BDFF73D0018437D /* SeaMonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B981BDFF73D0018437D /* SeaMonsterHit.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986B9E1BDFF7960018437D /* WoodenShipBodyHorz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9A1BDFF7960018437D /* WoodenShipBodyHorz.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986B9F1BDFF7960018437D /* WoodenShipBodyVert.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9B1BDFF7960018437D /* WoodenShipBodyVert.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986BA01BDFF7960018437D /* WoodenShipHeadDown.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9C1BDFF7960018437D /* WoodenShipHeadDown.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986BA11BDFF7960018437D /* WoodenShipHeadLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9D1BDFF7960018437D /* WoodenShipHeadLeft.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986BA41BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA21BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED986BA51BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA31BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +74,14 @@
 		A9DDAF251B9629AD00D64CD7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		A9EAC0BA1B8FD833008AD77B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A9EAC0BC1B8FDE98008AD77B /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
+		ED986B961BDFF7270018437D /* SeaMonster.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeaMonster.pdf; sourceTree = "<group>"; };
+		ED986B981BDFF73D0018437D /* SeaMonsterHit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeaMonsterHit.pdf; sourceTree = "<group>"; };
+		ED986B9A1BDFF7960018437D /* WoodenShipBodyHorz.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipBodyHorz.pdf; sourceTree = "<group>"; };
+		ED986B9B1BDFF7960018437D /* WoodenShipBodyVert.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipBodyVert.pdf; sourceTree = "<group>"; };
+		ED986B9C1BDFF7960018437D /* WoodenShipHeadDown.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadDown.pdf; sourceTree = "<group>"; };
+		ED986B9D1BDFF7960018437D /* WoodenShipHeadLeft.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadLeft.pdf; sourceTree = "<group>"; };
+		ED986BA21BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadRightWithFlag.pdf; sourceTree = "<group>"; };
+		ED986BA31BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WoodenShipHeadUpWithFlag.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +145,8 @@
 				A9C2B4621B8E2D38007983DB /* Assets.xcassets */,
 				A9C2B4751B8E2D79007983DB /* Hit.pdf */,
 				A9C2B4761B8E2D79007983DB /* Miss.pdf */,
+				ED986B961BDFF7270018437D /* SeaMonster.pdf */,
+				ED986B981BDFF73D0018437D /* SeaMonsterHit.pdf */,
 				A9C2B4771B8E2D79007983DB /* ShipEndRight.pdf */,
 				A9C2B4781B8E2D79007983DB /* ShipEndLeft.pdf */,
 				A9C2B4791B8E2D79007983DB /* ShipEndDown.pdf */,
@@ -138,6 +156,12 @@
 				A9601EC41B8E8B8800F9D044 /* MineHit.pdf */,
 				A9C2B47C1B8E2D79007983DB /* Mine.pdf */,
 				A9C2B47E1B8E2D79007983DB /* Water.pdf */,
+				ED986B9A1BDFF7960018437D /* WoodenShipBodyHorz.pdf */,
+				ED986B9B1BDFF7960018437D /* WoodenShipBodyVert.pdf */,
+				ED986B9C1BDFF7960018437D /* WoodenShipHeadDown.pdf */,
+				ED986B9D1BDFF7960018437D /* WoodenShipHeadLeft.pdf */,
+				ED986BA21BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf */,
+				ED986BA31BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -252,19 +276,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C2B4661B8E2D38007983DB /* LaunchScreen.storyboard in Resources */,
+				ED986B9E1BDFF7960018437D /* WoodenShipBodyHorz.pdf in Resources */,
 				A9C2B4901B8E2D79007983DB /* Water.pdf in Resources */,
+				ED986BA51BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf in Resources */,
 				A9C2B4631B8E2D38007983DB /* Assets.xcassets in Resources */,
 				A9C2B48E1B8E2D79007983DB /* Mine.pdf in Resources */,
 				A9C2B48B1B8E2D79007983DB /* ShipEndDown.pdf in Resources */,
 				A9C2B48D1B8E2D79007983DB /* ShipBodyHorz.pdf in Resources */,
+				ED986B9F1BDFF7960018437D /* WoodenShipBodyVert.pdf in Resources */,
 				A9C2B48F1B8E2D79007983DB /* ShipEndUp.pdf in Resources */,
+				ED986B971BDFF7270018437D /* SeaMonster.pdf in Resources */,
+				ED986BA01BDFF7960018437D /* WoodenShipHeadDown.pdf in Resources */,
+				ED986BA11BDFF7960018437D /* WoodenShipHeadLeft.pdf in Resources */,
 				A9C2B4881B8E2D79007983DB /* Miss.pdf in Resources */,
 				A9C2B48A1B8E2D79007983DB /* ShipEndLeft.pdf in Resources */,
 				A9C2B4891B8E2D79007983DB /* ShipEndRight.pdf in Resources */,
+				ED986BA41BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf in Resources */,
 				A9C2B4871B8E2D79007983DB /* Hit.pdf in Resources */,
 				A9C2B48C1B8E2D79007983DB /* ShipBodyVert.pdf in Resources */,
 				A9601EC51B8E8B8800F9D044 /* MineHit.pdf in Resources */,
 				A9C2B4611B8E2D38007983DB /* Main.storyboard in Resources */,
+				ED986B991BDFF73D0018437D /* SeaMonsterHit.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
