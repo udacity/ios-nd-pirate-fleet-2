@@ -39,15 +39,11 @@ struct Settings {
         static var GameOverTitle = "Game Over"
         static var GameOverWin = "You won! Congrats!"
         static var GameOverLose = "You've been defeated by the computer."
-        
         static var UnableToStartTitle = "Cannot Start Game"
-
         static var HumanHitMine = "You've hit a mine! The computer has been rewarded an extra move on their next turn."
         static var ComputerHitMine = "The computer has hit a mine! You've been awarded an extra move on your next turn."
-        
-        static var HumanHitMonster = "You've hit a sea monster! On the computer's next turn, they will get a guaranteed hit."
-        static var ComputerHitMonster = "The computer has hit a sea monster! On your next turn, you'll get a guaranteed hit."
-        
+        static var HumanHitMonster = "You've hit a sea monster! RIGHT NOW THE COMPUTER WILL JUST TAKE AN EXTRA TURN..."
+        static var ComputerHitMonster = "The computer has hit a sea monster! RIGHT NOW WE'LL JUST SKIP THE COMPUTER'S NEXT TURN..."
         static var ResetAction = "Reset Game"
         static var DismissAction = "Continue"
     }
