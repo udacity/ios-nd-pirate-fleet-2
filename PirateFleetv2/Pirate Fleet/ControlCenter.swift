@@ -17,6 +17,8 @@ struct Ship {
     let isVertical: Bool
     let isWooden: Bool
     
+
+// TODO: Add the computed property, cells.
 //    var cells: [GridLocation] {
 //        get {
 //            // Hint: These two constants will come in handy
@@ -30,60 +32,32 @@ struct Ship {
 //    }
     
     var hitTracker: HitTracker
+// TODO: Add a getter for sunk. Calculate the value returned using hitTracker.cellsHit.
     var sunk: Bool {
         return false
     }
- 
+
+// TODO: Add custom initializers
 //    init(length: Int) {
 //        self.length = length
 //        self.hitTracker = HitTracker()
 //    }
 }
 
+// TODO: Change Cell protocol to PenaltyCell and add the desired properties
 protocol Cell {
     var location: GridLocation {get}
 }
 
+// TODO: Adopt and implement the PenaltyCell protocol
 struct Mine: Cell {
     let location: GridLocation
-    let penaltyText: String
-    let guaranteesHit: Bool
-    
-    init(location: GridLocation) {
-        self.location = location
-        self.penaltyText = "Boom!"
-        self.guaranteesHit = false
-    }
-    
-    init(location: GridLocation, penaltyText: String) {
-        self.location = location
-        self.penaltyText = penaltyText
-        self.guaranteesHit = false
-    }
-    
-    init(location: GridLocation, penaltyText: String, guaranteesHit: Bool) {
-        self.location = location
-        self.penaltyText = penaltyText
-        self.guaranteesHit = guaranteesHit
-    }
+
 }
 
+// TODO: Adopt and implement the PenaltyCell protocol
 struct SeaMonster: Cell {
     let location: GridLocation
-    let penaltyText: String
-    let guaranteesHit: Bool
-    
-    init(location: GridLocation) {
-        self.location = location
-        self.penaltyText = "Yikes!"
-        self.guaranteesHit = true
-    }
-    
-    init(location: GridLocation, penaltyText: String) {
-        self.location = location
-        self.penaltyText = penaltyText
-        self.guaranteesHit = true
-    }
 }
 
 class ControlCenter {
@@ -105,13 +79,13 @@ class ControlCenter {
         let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true, isWooden: false, hitTracker: HitTracker())
         human.addShipToGrid(xLargeShip)
         
-        let mine1 = Mine(location: GridLocation(x: 6, y: 0), penaltyText: "Ka-Boom!")
+        let mine1 = Mine(location: GridLocation(x: 6, y: 0))
         human.addMineToGrid(mine1)
         
-        let mine2 = Mine(location: GridLocation(x: 3, y: 3), penaltyText: "Ka-Bang!")
+        let mine2 = Mine(location: GridLocation(x: 3, y: 3))
         human.addMineToGrid(mine2)
         
-        let seamonster1 = SeaMonster(location: GridLocation(x: 5, y: 6), penaltyText: "Chomp!")
+        let seamonster1 = SeaMonster(location: GridLocation(x: 5, y: 6))
         human.addSeamonsterToGrid(seamonster1)
         
         let seamonster2 = SeaMonster(location: GridLocation(x: 2, y: 2))
