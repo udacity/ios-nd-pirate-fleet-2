@@ -17,39 +17,27 @@ struct Ship {
     let isVertical: Bool
     let isWooden: Bool
     
-    var cells: [GridLocation] {
-        get {
-            let start = self.location
-            let end: GridLocation = ShipEndLocation(self)
-            var localCells = [GridLocation]()
-            for x in start.x...end.x {
-                for y in start.y...end.y {
-                    localCells.append(GridLocation(x: x, y: y))
-                }
-            }
-            return localCells
-        }
-    }
+//    var cells: [GridLocation] {
+//        get {
+//            // Hint: These two constants will come in handy
+//            let start = self.location
+//            let end: GridLocation = ShipEndLocation(self)
+//            
+//            // Hint: The cells getter should return an array of GridLocations.
+//            var occupiedCells = [GridLocation]()
+//
+//        }
+//    }
     
     var hitTracker: HitTracker
     var sunk: Bool {
-        get {
-            for (_, hit) in hitTracker.cellsHit {
-                if hit == false {
-                    return false
-                }
-            }
-            return true
-        }
+        return false
     }
-    
-    init(length: Int, location: GridLocation, isVertical: Bool) {
-        self.length = length
-        self.location = location
-        self.isVertical = isVertical
-        self.isWooden = true
-        self.hitTracker = HitTracker()
-    }
+ 
+//    init(length: Int) {
+//        self.length = length
+//        self.hitTracker = HitTracker()
+//    }
 }
 
 protocol Cell {

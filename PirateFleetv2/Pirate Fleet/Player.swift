@@ -23,7 +23,7 @@ class Player {
     
     var playerDelegate: PlayerDelegate?
     var playerType: PlayerType
-    var lastHitPenaltyCell: PenaltyCell? = nil
+    var lastHitPenaltyCell: Cell? = nil
     var numberOfMisses: Int = 0
     var numberOfHits: Int = 0
     
@@ -205,8 +205,8 @@ class Player {
     // MARK: Modify Grid
     
     func revealShipAtLocation(location: GridLocation) {
-        let connectedCells = grid[location.x][location.y].ship?.cells
-        gridView.revealLocations(connectedCells!)
+//        let connectedCells = grid[location.x][location.y].ship?.cells
+//        gridView.revealLocations(connectedCells!)
     }
     
     func addPlayerShipsMinesMonsters(numberOfMines: Int = 0, numberOfSeamonsters: Int = 0) {
@@ -218,12 +218,12 @@ class Player {
                 
                 var shipLocation = RandomGridLocation()
                 var vertical = Int(arc4random_uniform(UInt32(2))) == 0 ? true : false
-                var ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical)
+                var ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical, isWooden: false, hitTracker: HitTracker())
                 
                 while !gridViewController.addShip(ship, playerType: .Computer) {
                     shipLocation = RandomGridLocation()
                     vertical = Int(arc4random_uniform(UInt32(2))) == 0 ? true : false
-                    ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical)
+                    ship = Ship(length: shipLength, location: shipLocation, isVertical: vertical, isWooden: false, hitTracker: HitTracker())
                 }
             }
         }

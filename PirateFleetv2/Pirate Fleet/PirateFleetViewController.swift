@@ -148,9 +148,15 @@ extension PirateFleetViewController: PlayerDelegate {
         // if any penalties incurred during the move, show alert
         if let penaltyCell = player.lastHitPenaltyCell {
             
-            // lose a turn penalty
-            if penaltyCell.guaranteesHit {
-                attackedPlayer.availableMoves.append(.NormalMove)
+//            if penaltyCell.guaranteesHit {
+//                attackedPlayer.availableMoves.append(.GuaranteedHit)
+//            } else {
+//                attackedPlayer.availableMoves.append(.NormalMove)
+//            }
+
+            
+            // mine penalty
+             if let mine = penaltyCell as? Mine {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
 
@@ -159,9 +165,8 @@ extension PirateFleetViewController: PlayerDelegate {
                 })
             }
                 
-            // guaranteed hit penalty
-            else if !penaltyCell.guaranteesHit {
-                attackedPlayer.availableMoves.append(.GuaranteedHit)
+            // seamonster penalty
+            else if let seamonster = penaltyCell as? SeaMonster {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMonster : Settings.Messages.ComputerHitMonster
                 
