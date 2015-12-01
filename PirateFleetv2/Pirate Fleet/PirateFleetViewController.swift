@@ -52,11 +52,25 @@ class PirateFleetViewController: UIViewController {
         case .ReadyToPlay:
             readyToPlay = true
             gameOver = false
-        case .ShipsMonstersNotReady, .ShipsMinesNotReady, .ShipsMinesMonstersNotReady, .ShipsNotReady, .Invalid:
+        case .ShipsMinesNotReady:
+            stopGameForErrorWithState(readyState, error: Settings.Messages.ShipsMinesNotReady)
+        case .ShipsNotReady:
+            stopGameForErrorWithState(readyState, error: Settings.Messages.ShipsNotReady)
+        case .ShipsMonstersNotReady:
+            stopGameForErrorWithState(readyState, error: Settings.Messages.ShipsMonstersNotReady)
+        case .ShipsMinesMonstersNotReady:
+            stopGameForErrorWithState(readyState, error: Settings.Messages.ShipsMinesMonstersNotReady)
+        case .Invalid:
             readyToPlay = false
             gameOver = true
-            createAlertWithTitle(Settings.Messages.UnableToStartTitle, message: readyState.rawValue, completionHandler: nil)
         }
+    }
+    
+    private func stopGameForErrorWithState(readyState: ReadyState, error: String) {
+        readyToPlay = false
+        gameOver = true
+        print(error)
+        createAlertWithTitle(Settings.Messages.UnableToStartTitle, message: readyState.rawValue, completionHandler: nil)
     }
     
     func setupHuman() -> (Int, Int) {

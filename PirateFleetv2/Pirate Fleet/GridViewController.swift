@@ -48,16 +48,23 @@ class GridViewController {
     func addShip(ship: Ship, playerType: PlayerType = .Human) -> Bool {
         
         guard isShipRequired(ship) else {
-            let shipSize = ShipSize(rawValue: ship.length)!
-            if playerType == .Human { print("ERROR: Cannot add \(ship). You already have enough \(shipSize) ships.") }
+            if let shipSize = ShipSize(rawValue: ship.length) where playerType == .Human {
+                print("ERROR: Cannot add \(ship). You already have enough \(shipSize) ships.")
+            }
             return false
         }
         
         guard !isShipOutOfBounds(ship) else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(ship). Ship is out of bounds.")
+            }
             return false
         }
         
         guard !isShipOverlapping(ship) else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(ship). Ship overlaps another ship.")
+            }
             return false
         }
         
@@ -107,7 +114,17 @@ class GridViewController {
         
         let x = mine.location.x, y = mine.location.y
 
+        guard !isLocationOutOfBounds(mine.location) else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(mine). Mine is out of bounds.")
+            }
+            return false
+        }
+        
         guard mineCount < Settings.RequiredMines && !gridView.grid[x][y].containsObject else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(mine). You already have enough mines.")
+            }
             return false
         }
         
@@ -124,7 +141,17 @@ class GridViewController {
         
         let x = seamonster.location.x, y = seamonster.location.y
         
+        guard !isLocationOutOfBounds(seamonster.location) else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(seamonster). Seamonster is out of bounds.")
+            }
+            return false
+        }
+        
         guard seamonsterCount < Settings.RequiredSeamonsters && !gridView.grid[x][y].containsObject else {
+            if playerType == .Human {
+                print("ERROR: Cannot add \(seamonster). You already have enough sea monsters.")
+            }
             return false
         }
         
@@ -219,14 +246,22 @@ extension GridViewController {
 
 extension GridViewController {
         
+    private func isLocationOutOfBounds(location: GridLocation) -> Bool {
+        return (location.x >= Settings.DefaultGridSize.width || location.y >= Settings.DefaultGridSize.height || location.x < 0 || location.y < 0)
+    }
+    
     private func isShipOutOfBounds(ship: Ship) -> Bool {
         let start = ship.location, end = ShipEndLocation(ship)
         return (end.x >= Settings.DefaultGridSize.width || end.y >= Settings.DefaultGridSize.height || start.x < 0 || end.x < 0)
     }
     
     private func isShipRequired(ship: Ship) -> Bool {
-        let shipSize = ShipSize(rawValue: ship.length)!
-        return shipCounts[shipSize] < Settings.RequiredShips[shipSize]
+        if let shipSize = ShipSize(rawValue: ship.length) {
+            return shipCounts[shipSize] < Settings.RequiredShips[shipSize]
+        } else {
+            print("ERROR: Cannot add \(ship). Ship has an invalid length of \(ship.length).")
+            return false
+        }
     }
     
     private func isShipOverlapping(ship: Ship) -> Bool {
