@@ -62,7 +62,7 @@ struct SeaMonster: Cell {
 
 class ControlCenter {
     
-    func placeItemsOnGrid(human: Human) {
+    func placeItemsOnGrid(_ human: Human) {
         
         let smallShip = Ship(length: 2, location: GridLocation(x: 3, y: 4), isVertical: true, isWooden: false, hitTracker: HitTracker())
         human.addShipToGrid(smallShip)
@@ -92,7 +92,7 @@ class ControlCenter {
         human.addSeamonsterToGrid(seamonster2)
     }
     
-    func calculateFinalScore(gameStats: GameStats) -> Int {
+    func calculateFinalScore(_ gameStats: GameStats) -> Int {
         
         var finalScore: Int
         

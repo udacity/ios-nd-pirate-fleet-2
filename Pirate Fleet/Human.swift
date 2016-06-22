@@ -12,9 +12,9 @@ import UIKit
 // Used to give students a clean interface 😉!
 
 protocol Human {
-    func addShipToGrid(ship: Ship)
-    func addMineToGrid(mine: Mine)
-    func addSeamonsterToGrid(seamonster: SeaMonster)
+    func addShipToGrid(_ ship: Ship)
+    func addMineToGrid(_ mine: Mine)
+    func addSeamonsterToGrid(_ seamonster: SeaMonster)
 }
 
 // MARK: - HumanObject
@@ -29,31 +29,31 @@ class HumanObject: Player, Human {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.playerType = .Human
-        self.availableMoves.append(.NormalMove)
+        self.playerType = .human
+        self.availableMoves.append(.normalMove)
     }
     
     // MARK: Modify Grid
     
-    func addShipToGrid(ship: Ship) {
-        gridViewController.addShip(ship)
+    func addShipToGrid(_ ship: Ship) {
+        let _ = gridViewController.addShip(ship)
     }
     
-    func addMineToGrid(mine: Mine) {
-        gridViewController.addMine(mine)
+    func addMineToGrid(_ mine: Mine) {
+        let _ = gridViewController.addMine(mine)
     }
     
-    func addSeamonsterToGrid(seamonster: SeaMonster) {
-        gridViewController.addSeamonster(seamonster)
+    func addSeamonsterToGrid(_ seamonster: SeaMonster) {
+        let _ = gridViewController.addSeamonster(seamonster)
     }
     
-    override func addPlayerShipsMinesMonsters(numberOfMines: Int = 0, numberOfSeamonsters: Int = 0) {
+    override func addPlayerShipsMinesMonsters(_ numberOfMines: Int = 0, numberOfSeamonsters: Int = 0) {
         controlCenter.placeItemsOnGrid(self)
     }
     
     // MARK: Calculate Final Score
     
-    func calculateScore(computer: Computer) -> String {
+    func calculateScore(_ computer: Computer) -> String {
 
         let gameStats = GameStats(numberOfHitsOnEnemy: numberOfHits, numberOfMissesByHuman: numberOfMisses, enemyShipsRemaining: 5 - computer.gridViewController.numberSunk(), humanShipsSunk: gridViewController.numberSunk(), sinkBonus: 100, shipBonus: 100, guessPenalty: 10)
         
