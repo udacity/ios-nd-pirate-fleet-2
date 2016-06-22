@@ -15,7 +15,6 @@
 		A9C2B45C1B8E2D38007983DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2B45B1B8E2D38007983DB /* AppDelegate.swift */; };
 		A9C2B4611B8E2D38007983DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C2B45F1B8E2D38007983DB /* Main.storyboard */; };
 		A9C2B4631B8E2D38007983DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C2B4621B8E2D38007983DB /* Assets.xcassets */; };
-		A9C2B4661B8E2D38007983DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C2B4641B8E2D38007983DB /* LaunchScreen.storyboard */; };
 		A9C2B47F1B8E2D79007983DB /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2B46D1B8E2D79007983DB /* GridView.swift */; };
 		A9C2B4821B8E2D79007983DB /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2B4701B8E2D79007983DB /* GridViewController.swift */; };
 		A9C2B4831B8E2D79007983DB /* PirateFleetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2B4711B8E2D79007983DB /* PirateFleetViewController.swift */; };
@@ -32,16 +31,17 @@
 		A9C2B4901B8E2D79007983DB /* Water.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A9C2B47E1B8E2D79007983DB /* Water.pdf */; };
 		A9D83B5F1B97881C00EBA850 /* ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D83B5E1B97881C00EBA850 /* ControlCenter.swift */; };
 		A9DDAF261B9629AD00D64CD7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DDAF251B9629AD00D64CD7 /* Functions.swift */; };
+		A9E8D0ED1D1B07C00063D23B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E8D0EB1D1B07C00063D23B /* LaunchScreen.xib */; };
 		A9EAC0BB1B8FD833008AD77B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BA1B8FD833008AD77B /* Player.swift */; };
 		A9EAC0BD1B8FDE98008AD77B /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAC0BC1B8FDE98008AD77B /* Human.swift */; };
-		ED127C9C1BEA9CA300593385 /* SeaMonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED127C9B1BEA9CA300593385 /* SeaMonsterHit.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED127C9E1BEA9DC500593385 /* SeaMonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED127C9D1BEA9DC500593385 /* SeaMonster.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986B9E1BDFF7960018437D /* WoodenShipBodyHorz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9A1BDFF7960018437D /* WoodenShipBodyHorz.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986B9F1BDFF7960018437D /* WoodenShipBodyVert.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9B1BDFF7960018437D /* WoodenShipBodyVert.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986BA01BDFF7960018437D /* WoodenShipHeadDown.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9C1BDFF7960018437D /* WoodenShipHeadDown.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986BA11BDFF7960018437D /* WoodenShipHeadLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9D1BDFF7960018437D /* WoodenShipHeadLeft.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986BA41BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA21BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf */; settings = {ASSET_TAGS = (); }; };
-		ED986BA51BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA31BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf */; settings = {ASSET_TAGS = (); }; };
+		ED127C9C1BEA9CA300593385 /* SeaMonsterHit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED127C9B1BEA9CA300593385 /* SeaMonsterHit.pdf */; };
+		ED127C9E1BEA9DC500593385 /* SeaMonster.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED127C9D1BEA9DC500593385 /* SeaMonster.pdf */; };
+		ED986B9E1BDFF7960018437D /* WoodenShipBodyHorz.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9A1BDFF7960018437D /* WoodenShipBodyHorz.pdf */; };
+		ED986B9F1BDFF7960018437D /* WoodenShipBodyVert.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9B1BDFF7960018437D /* WoodenShipBodyVert.pdf */; };
+		ED986BA01BDFF7960018437D /* WoodenShipHeadDown.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9C1BDFF7960018437D /* WoodenShipHeadDown.pdf */; };
+		ED986BA11BDFF7960018437D /* WoodenShipHeadLeft.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986B9D1BDFF7960018437D /* WoodenShipHeadLeft.pdf */; };
+		ED986BA41BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA21BDFFA420018437D /* WoodenShipHeadRightWithFlag.pdf */; };
+		ED986BA51BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED986BA31BDFFA420018437D /* WoodenShipHeadUpWithFlag.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +54,6 @@
 		A9C2B45B1B8E2D38007983DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9C2B4601B8E2D38007983DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9C2B4621B8E2D38007983DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A9C2B4651B8E2D38007983DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9C2B4671B8E2D38007983DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C2B46D1B8E2D79007983DB /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A9C2B4701B8E2D79007983DB /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		A9C2B47E1B8E2D79007983DB /* Water.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Water.pdf; path = Images/Water.pdf; sourceTree = "<group>"; };
 		A9D83B5E1B97881C00EBA850 /* ControlCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCenter.swift; sourceTree = "<group>"; };
 		A9DDAF251B9629AD00D64CD7 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		A9E8D0EC1D1B07C00063D23B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A9EAC0BA1B8FD833008AD77B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		A9EAC0BC1B8FDE98008AD77B /* Human.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		ED127C9B1BEA9CA300593385 /* SeaMonsterHit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SeaMonsterHit.pdf; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C2B45F1B8E2D38007983DB /* Main.storyboard */,
-				A9C2B4641B8E2D38007983DB /* LaunchScreen.storyboard */,
+				A9E8D0EB1D1B07C00063D23B /* LaunchScreen.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -275,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C2B4661B8E2D38007983DB /* LaunchScreen.storyboard in Resources */,
 				ED127C9E1BEA9DC500593385 /* SeaMonster.pdf in Resources */,
 				ED986B9E1BDFF7960018437D /* WoodenShipBodyHorz.pdf in Resources */,
 				A9C2B4901B8E2D79007983DB /* Water.pdf in Resources */,
@@ -296,6 +295,7 @@
 				A9C2B4871B8E2D79007983DB /* Hit.pdf in Resources */,
 				A9C2B48C1B8E2D79007983DB /* ShipBodyVert.pdf in Resources */,
 				A9601EC51B8E8B8800F9D044 /* MineHit.pdf in Resources */,
+				A9E8D0ED1D1B07C00063D23B /* LaunchScreen.xib in Resources */,
 				A9C2B4611B8E2D38007983DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,12 +334,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A9C2B4641B8E2D38007983DB /* LaunchScreen.storyboard */ = {
+		A9E8D0EB1D1B07C00063D23B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A9C2B4651B8E2D38007983DB /* Base */,
+				A9E8D0EC1D1B07C00063D23B /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -86,24 +86,24 @@ class Player {
         // hit a mine?
         if let mine = player.grid[atLocation.x][atLocation.y].mine {
             lastHitPenaltyCell = mine
-            numberOfMisses++
+            numberOfMisses += 1
             player.gridView.markImageAtLocation(mine.location, image: Settings.Images.MineHit)
         }
         
         // hit a seamonster?
         if let seamonster = player.grid[atLocation.x][atLocation.y].seamonster {
             lastHitPenaltyCell = seamonster
-            numberOfMisses++
+            numberOfMisses += 1
             player.gridView.markImageAtLocation(seamonster.location, image: Settings.Images.SeaMonsterHit)
         }
         
         // hit a ship?
         if !player.gridViewController.fireCannonAtLocation(atLocation) {
-            numberOfMisses++
+            numberOfMisses += 1
             player.gridView.markImageAtLocation(atLocation, image: Settings.Images.Miss)
         } else {
             // we hit something!
-            numberOfHits++
+            numberOfHits += 1
         }
         
         if let playerDelegate = playerDelegate {
@@ -141,7 +141,7 @@ class Player {
                 } else {
                     
                     hitShip = true
-                    numberOfHits++
+                    numberOfHits += 1
                     performedMoves.insert(location)
                     
                     if let playerDelegate = playerDelegate {
@@ -173,7 +173,7 @@ class Player {
                     if let mine = player.grid[location.x][location.y].mine {
                         hitMine = true
                         self.lastHitPenaltyCell = mine
-                        self.gridViewController.mineCount--
+                        self.gridViewController.mineCount -= 1
                         player.gridViewController.fireCannonAtLocation(mine.location)
                         
                         performedMoves.insert(mine.location)
