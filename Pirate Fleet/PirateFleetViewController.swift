@@ -158,6 +158,7 @@ extension PirateFleetViewController: PlayerDelegate {
         
         // which player was attacked?
         let attackedPlayer = (player.playerType == .Human) ? computer : human
+        print("playerDidMove - attackedPlayer is \(attackedPlayer)")
         
         // if any penalties incurred during the move, show alert
         if let penaltyCell = player.lastHitPenaltyCell {
@@ -171,7 +172,7 @@ extension PirateFleetViewController: PlayerDelegate {
 
             
             // mine penalty
-             if let mine = penaltyCell as? Mine {
+             if let _ = penaltyCell as? Mine {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
 
@@ -181,7 +182,7 @@ extension PirateFleetViewController: PlayerDelegate {
             }
                 
             // seamonster penalty
-            else if let seamonster = penaltyCell as? SeaMonster {
+            else if let _ = penaltyCell as? SeaMonster {
                 
                 let alertMessage = (player.playerType == .Human) ? Settings.Messages.HumanHitMonster : Settings.Messages.ComputerHitMonster
                 
