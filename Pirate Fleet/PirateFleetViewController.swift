@@ -42,10 +42,10 @@ class PirateFleetViewController: UIViewController {
         let penaltyItems = setupHuman()
         
         // computer must match the number of penalty items added by human
-        setupComputer(numberOfMines: penaltyItems.0, numberOfSeamonsters: penaltyItems.1)
+        setupComputer(penaltyItems.0, numberOfSeamonsters: penaltyItems.1)
         
         // determine if the proper amount of ships/mines/monsters given
-        let readyState = checkReadyToPlay(numberOfMines: penaltyItems.0, numberOfSeamonsters: penaltyItems.1)
+        let readyState = checkReadyToPlay(penaltyItems.0, numberOfSeamonsters: penaltyItems.1)
         
         // are we ready to play?
         switch(readyState) {
@@ -66,7 +66,7 @@ class PirateFleetViewController: UIViewController {
         }
     }
     
-    private func stopGameForErrorWithState(_ readyState: ReadyState, error: String) {
+    fileprivate func stopGameForErrorWithState(_ readyState: ReadyState, error: String) {
         readyToPlay = false
         gameOver = true
         print(error)
@@ -86,7 +86,7 @@ class PirateFleetViewController: UIViewController {
         return (human.numberOfMines(), human.numberOfSeamonsters())
     }
     
-    func setupComputer(numberOfMines: Int, numberOfSeamonsters: Int) {
+    func setupComputer(_ numberOfMines: Int, numberOfSeamonsters: Int) {
         if computer != nil {
             computer.reset()
             computer.addPlayerShipsMinesMonsters(numberOfMines, numberOfSeamonsters: numberOfSeamonsters)
@@ -101,7 +101,7 @@ class PirateFleetViewController: UIViewController {
     
     // MARK: Check If Ready To Play
 
-    func checkReadyToPlay(numberOfMines: Int, numberOfSeamonsters: Int) -> ReadyState {
+    func checkReadyToPlay(_ numberOfMines: Int, numberOfSeamonsters: Int) -> ReadyState {
         switch (numberOfMines, numberOfSeamonsters) {
         case (0, 0):
             return (human.readyToPlay(checkMines: false, checkMonsters: false) && computer.readyToPlay(checkMines: false, checkMonsters: false)) ? .ReadyToPlay : .ShipsNotReady
@@ -158,6 +158,7 @@ extension PirateFleetViewController: PlayerDelegate {
         
         // which player was attacked?
         let attackedPlayer = (player.playerType == .human) ? computer : human
+        print("playerDidMove - attackedPlayer is \(attackedPlayer)")
         
         // if any penalties incurred during the move, show alert
         if let penaltyCell = player.lastHitPenaltyCell {
@@ -171,7 +172,7 @@ extension PirateFleetViewController: PlayerDelegate {
 
             
             // mine penalty
-             if let mine = penaltyCell as? Mine {
+             if let _ = penaltyCell as? Mine {
                 
                 let alertMessage = (player.playerType == .human) ? Settings.Messages.HumanHitMine : Settings.Messages.ComputerHitMine
 
@@ -181,7 +182,7 @@ extension PirateFleetViewController: PlayerDelegate {
             }
                 
             // seamonster penalty
-            else if let seamonster = penaltyCell as? SeaMonster {
+            else if let _ = penaltyCell as? SeaMonster {
                 
                 let alertMessage = (player.playerType == .human) ? Settings.Messages.HumanHitMonster : Settings.Messages.ComputerHitMonster
                 
